@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Sticky Notes</title>
+</head>
+
+<body>
+  <section class="auth">
+    <div class="personal-information">
+      <div class="sign-up-wrapper">
+        <div class="heading" id="text-signUp">
+          <h1>Sign Up</h1>
+        </div>
+        <form action="#" id="register-form">
+          <div class="block-input">
+            <div class="col">
+              <label for="user-name">User Name</label>
+              <div class="wrapper-valid-input">
+                <input type="text" name="user-name" id="user-name">
+              </div>
+            </div>
+          </div>
+          <div class="block-input">
+            <div class="col">
+              <label for="email">Email</label>
+              <div class="wrapper-valid-input">
+                <input type="email" name="email" id="email-register" />
+              </div>
+            </div>
+          </div>
+          <div class="block-input">
+            <div class="col">
+              <label for="password">Password</label>
+              <div class="wrapper-valid-input">
+                <div class="wrapper-password">
+                  <input type="password" name="password" id="password-register" class="error">
+                  <span class="toggle-password" id="toggleSignUp">Show</span>
+                </div>
+                <div class="check-password">Must be at least 8 characters long</div>
+              </div>
+            </div>
+          </div>
+          <div class="onsubmit">
+            <input type="submit" value="Sign Up" id="sign-up">
+          </div>
+        </form>
+      </div>
+      <div class="login-wrapper">
+        <div class="heading" id="text-login">
+          <h1>Log In</h1>
+        </div>
+        <form action="#" id="login-form">
+          <div class="block-input">
+            <div class="col">
+              <label for="email">Email</label>
+              <div class="wrapper-valid-input">
+                <input type="email" name="email" id="email-login" />
+                <div class="check-email">The email you entered is not registered. Please sign up.</div>
+              </div>
+            </div>
+          </div>
+          <div class="block-input">
+            <div class="col">
+              <label for="password">Password</label>
+              <div class="wrapper-valid-input">
+                <div class="wrapper-password">
+                  <input type="password" name="password" id="password-login">
+                <span class="toggle-password" id="toggleLogin" >Show</span>
+                </div>
+                <div class="check-password-login">The password you entered is incorrect. Please try again</div>
+              </div>
+            </div>
+          </div>
+          <div class="onsubmit">
+            <input type="submit" value="Login" id="register">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  </div>
+  <script src="./javascript/index.js"></script>
+</body>
+
+</html>

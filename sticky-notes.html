@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Sticky Notes</title>
+</head>
+
+<body>
+  <div class="sticky-notes d-flex flex-wrap">
+    <div class="docket col-md-1 col-sm-12 d-flex flex-column align-items-center ">
+      <h1>Docket</h1>
+        <div class="add-color">
+          <span>+</span>
+        </div>
+      <div class="list-of-color">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="color-picker"></div>
+    </div>
+    <div class="notes col-md-11 col-sm-12 d-flex flex-wrap">
+      <div class="img-notes">
+        <img src="./img/bgStickyNotes.png" alt="img-notes">
+      </div>
+    </div>
+  </div>
+  <div class="message">
+    <div class="wrapper-message">
+      <div class="img-message">
+        <img src="./img/sticky-note-2.png" alt="sticky-note-1">
+      </div>
+      <div class="message-text">Please do not leave the note blank.</div>
+    <div class="buttons-message">
+      <button class="leave">Leave</button>
+      <button class="continue">Continue</button>
+    </div>
+    </div>
+  </div>
+  <div class="message message-delete">
+    <div class="wrapper-message">
+      <div class="img-message">
+        <img src="./img/delete.png" alt="sticky-delete">
+      </div>
+      <div class="message-text">Are you sure you want to delete this note?</div>
+    <div class="buttons-message">
+      <button class="delete">Delete</button>
+      <button class="cancel">Cancel</button>
+    </div>
+    </div>
+  </div>
+  <script src="./javascript/sticky-notes.js"></script>
+</body>
+
+</html>
