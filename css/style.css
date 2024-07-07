@@ -153,13 +153,14 @@ input,button{
   font-size: 24px;
   word-break: break-word;
   max-width: 100%;
-  
+  overflow: scroll;
 }
 .notes .box-note > .wrapper-date-note{
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+  color: #000;
 }
 .notes .box-note > i{
   position: absolute;
