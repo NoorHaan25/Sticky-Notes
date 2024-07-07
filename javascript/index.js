@@ -11,9 +11,11 @@ const passwordLogin = document.getElementById("password-login");
 const loginForm = document.getElementById("login-form");
 const checkPassword= document.querySelector(".check-password");
 const checkPasswordLogin = document.querySelector(".check-password-login");
-const checkEmail = document.querySelector(".check-email");
-let isUserNameValid = false;
-let isEmailValid = false;
+const checkEmailLogin = document.querySelector(".check-email-login");
+const checkEmailSignUp = document.querySelector(".check-email-signup");
+const checkUserName = document.querySelector(".check-userName");
+const personalInformation = document.querySelector(".personal-information");
+const currentHeight = parseFloat(personalInformation.offsetHeight);
 login.addEventListener("click", () => {
   login.style = "bottom: 0px";
 });
@@ -42,9 +44,7 @@ togglePassword.forEach((button) => {
     }
   });
 });
-if (passwordSignUp.length < 6) {
-  alert("Password must be at least 6 characters long.");
-}
+
 /* Sign Up */
 registerForm.onsubmit = async function (e) {
   e.preventDefault();
@@ -56,7 +56,21 @@ registerForm.onsubmit = async function (e) {
   if (data.password.length < 8) {
     passwordSignUp.style.cssText="border: 2px solid #cb2027";
     checkPassword.style.display="block";
+    personalInformation.style.height = (currentHeight + 90) + 'px'
     return; 
+  }
+  if(userNameSignUp.value === "") {
+    userNameSignUp.style.cssText="border: 2px solid #cb2027";
+    checkUserName.style.display="block";
+    personalInformation.style.height = (currentHeight + 90) + 'px';
+    return;
+  }
+  if (userNameSignUp.value.length < 3) {
+    userNameSignUp.style.cssText = "border: 2px solid #cb2027";
+    checkUserName.textContent = "Username must be at least 3 characters long.";
+    checkUserName.style.display = "block";
+    personalInformation.style.height = (currentHeight + 90) + 'px';
+    return;
   }
   try {
     const response = await fetch("http://localhost:3000/register", {
@@ -68,8 +82,19 @@ registerForm.onsubmit = async function (e) {
     });
     const responseData = await response.json();
     console.log("success", responseData);
-    localStorage.setItem("token", responseData.accessToken);
-    window.location = "../sticky-notes.html";
+    if(response.ok){
+      localStorage.setItem("token", responseData.accessToken);
+      localStorage.setItem("userId", responseData.user.id);
+      localStorage.setItem("userName", responseData.user.userName);
+      // console.log('user name', responseData.user.userName);
+      window.location = "../sticky-notes.html";
+    }else if(response.status === 400){
+      if(responseData === "Email already exists"){
+        checkEmailSignUp.style.display = "block";
+        emailSignUp.style.cssText="border: 2px solid #cb2027";
+        personalInformation.style.height = (currentHeight + 90) + 'px';
+      }
+    }
   } catch (error) {
     console.error("error", error);
   }
@@ -97,10 +122,12 @@ loginForm.onsubmit = async function (e) {
       console.log("success", responseData.user.id);
       localStorage.setItem("token", responseData.accessToken);
       localStorage.setItem("userId", responseData.user.id);
+      localStorage.setItem("userName", responseData.user.userName);
+      console.log('user name', responseData.user);
       window.location = "../sticky-notes.html";
     }else if(response.status === 400){
       if(responseData === "Cannot find user"){
-        checkEmail.style.display = "block";
+        checkEmailLogin.style.display = "block";
         emailLogin.style.cssText="border: 2px solid #cb2027";
         // console.log('The email you entered is not registered. Please sign up.');
       }else if(responseData === "Incorrect password" || responseData === "Password is too short")

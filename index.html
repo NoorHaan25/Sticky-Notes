@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="./css/style.css" />
   <title>Sticky Notes</title>
 </head>
-
 <body>
   <section class="auth">
     <div class="personal-information">
@@ -24,6 +23,7 @@
               <label for="user-name">User Name</label>
               <div class="wrapper-valid-input">
                 <input type="text" name="user-name" id="user-name">
+                <div class="check-userName">Please enter a username.</div>
               </div>
             </div>
           </div>
@@ -32,6 +32,7 @@
               <label for="email">Email</label>
               <div class="wrapper-valid-input">
                 <input type="email" name="email" id="email-register" />
+                <div class="check-email-signup">The email you entered already exists. Please log in</div>
               </div>
             </div>
           </div>
@@ -62,7 +63,7 @@
               <label for="email">Email</label>
               <div class="wrapper-valid-input">
                 <input type="email" name="email" id="email-login" />
-                <div class="check-email">The email you entered is not registered. Please sign up.</div>
+                <div class="check-email-login check-email">The email you entered is not registered. Please sign up.</div>
               </div>
             </div>
           </div>

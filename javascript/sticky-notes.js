@@ -2,8 +2,6 @@ const listOfColor= document.querySelector('.list-of-color');
 const addColor= document.querySelector('.add-color');
 // console.log('addColor' , addColor);
 const listOfColorChild = Array.from(listOfColor.children);
-// console.log('listOfColorChild', listOfColorChild);
-// const addColorPosition = addColor.getBoundingClientRect();
 let addColorPosition = {
         top: addColor.offsetTop,
         left: addColor.offsetLeft,
@@ -409,4 +407,69 @@ async function updateNotesForCurrentUser(noteId , data){
 
 
 
+/* dropdown */
+  const select=document.querySelector('.select');
+  const menu = document.querySelector('.menu');
+select.addEventListener('click', function(){
+  menu.classList.toggle('menu-open');
+});
 
+/* Logout */
+const logout = document.querySelector('.logout');
+logout.addEventListener('click', function(){
+  console.log('logged out');
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+  window.location= '../index.html';
+});
+
+/* Theme */
+const settings = document.querySelector('.settings');
+const cardSettings = document.querySelector('.card-settins')
+const darkTheme = document.querySelector('#dark-theme');
+const lightTheme = document.querySelector('#light-theme');
+const stickyNotes = document.querySelector(".sticky-notes");
+let theme = "";
+settings.addEventListener('click', function(){
+  console.log('settings');
+  cardSettings.classList.toggle('menu-open')
+});
+darkTheme.addEventListener("click", function () {
+  stickyNotes.classList.add("dark-theme");
+  addColor.classList.add("dark-theme");
+  menu.classList.add("dark-theme");
+  // this.style.cssText = "color : #000000";
+  // lightTheme.style.cssText = "color : #777";
+  theme = "dark";
+  localStorage.setItem("theme", JSON.stringify(theme));
+  // console.log("theme: " + theme);
+});
+/*  Light theme */
+lightTheme.addEventListener("click", function () {
+  stickyNotes.classList.remove("dark-theme");
+  addColor.classList.remove("dark-theme");
+  menu.classList.remove("dark-theme");
+  theme = "light";
+  localStorage.setItem("theme", JSON.stringify(theme));
+});
+
+const getTheme = JSON.parse(localStorage.getItem("theme"));
+if (getTheme === "dark") {
+  stickyNotes.classList.add("dark-theme");
+  addColor.classList.add("dark-theme");
+  menu.classList.add("dark-theme");
+} else if(getTheme === "light"){
+  stickyNotes.classList.remove("dark-theme");
+  addColor.classList.remove("dark-theme");
+  menu.classList.remove("dark-theme");
+}
+/*  Add UserName */
+const userNameElement = document.querySelector(".userName")
+document.addEventListener('DOMContentLoaded', () => {
+  const userName = localStorage.getItem('userName');
+  console.log('User Name: ' , userName);
+  if (userName) {
+    const initialsName = userName.slice(0, 2).toUpperCase(); 
+    userNameElement.textContent = initialsName;
+  }
+});

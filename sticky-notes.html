@@ -14,51 +14,83 @@
 </head>
 
 <body>
-  <div class="sticky-notes d-flex flex-wrap">
-    <div class="docket col-md-1 col-sm-12 d-flex flex-column align-items-center ">
-      <h1>Docket</h1>
-        <div class="add-color">
-          <span>+</span>
+  <section class="sticky-notes">
+    <div class="d-flex flex-wrap">
+      <div class="docket col-md-1 col-sm-12 d-flex flex-column align-items-center ">
+        <h1>Docket</h1>
+          <div class="add-color">
+            <span>+</span>
+          </div>
+        <div class="list-of-color">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      <div class="list-of-color">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <div class="color-picker"></div>
       </div>
-      <div class="color-picker"></div>
-    </div>
-    <div class="notes col-md-11 col-sm-12 d-flex flex-wrap">
-      <div class="img-notes">
-        <img src="./img/bgStickyNotes.png" alt="img-notes">
+      <div class="notes col-md-11 col-sm-12 d-flex flex-wrap">
+        <div class="account">
+          <div class="dropdown">
+            <div class="heading select">
+              <span class="userName"></span>
+            </div>
+            <ul class="menu">
+              <li class="settings">
+                <div class="wrapper-setting">
+                  <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+                </div>
+                <div class="card-settins">
+                  <h3>Theme</h3>
+                  <div class="themes">
+                    <div class="theme" id="dark-theme">
+                      <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div class="theme" id="light-theme">
+                      <i class="fa-solid fa-sun"></i>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Log out</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-notes">
+            <img src="./img/bgStickyNotes.png" alt="img-notes">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="message">
-    <div class="wrapper-message">
-      <div class="img-message">
-        <img src="./img/sticky-note-2.png" alt="sticky-note-1">
+    <div class="message">
+      <div class="wrapper-message">
+        <div class="img-message">
+          <img src="./img/sticky-note-2.png" alt="sticky-note-1">
+        </div>
+        <div class="message-text">Please do not leave the note blank.</div>
+      <div class="buttons-message">
+        <button class="leave">Leave</button>
+        <button class="continue">Continue</button>
       </div>
-      <div class="message-text">Please do not leave the note blank.</div>
-    <div class="buttons-message">
-      <button class="leave">Leave</button>
-      <button class="continue">Continue</button>
-    </div>
-    </div>
-  </div>
-  <div class="message message-delete">
-    <div class="wrapper-message">
-      <div class="img-message">
-        <img src="./img/delete.png" alt="sticky-delete">
       </div>
-      <div class="message-text">Are you sure you want to delete this note?</div>
-    <div class="buttons-message">
-      <button class="delete">Delete</button>
-      <button class="cancel">Cancel</button>
     </div>
+    <div class="message message-delete">
+      <div class="wrapper-message">
+        <div class="img-message">
+          <img src="./img/delete.png" alt="sticky-delete">
+        </div>
+        <div class="message-text">Are you sure you want to delete this note?</div>
+      <div class="buttons-message">
+        <button class="delete">Delete</button>
+        <button class="cancel">Cancel</button>
+      </div>
+      </div>
     </div>
-  </div>
+  </section>
   <script src="./javascript/sticky-notes.js"></script>
 </body>
 
