@@ -158,9 +158,6 @@ function processCardNote(cardNote , icons , date ,createBox , noteData ) {
   let isNewNote = true;
   let hasBeenEdited = false;
   cardNote.addEventListener('click', () =>{
-    // if(cardNote.getAttribute('contenteditable') === 'false' && cardNote.textContent !== '') {
-    //   isNewNote = false;
-    // }
     if (isNewNote && cardNote.getAttribute('contenteditable') === 'false'){
       cardNote.setAttribute('contenteditable', 'true');
       icons.forEach(icon =>{
@@ -191,7 +188,7 @@ function processCardNote(cardNote , icons , date ,createBox , noteData ) {
         });
         date.style.display = 'none';
       })
-      leaveButton.addEventListener('click', () =>{
+      leaveButton.addEventListener('mousedown', () => {
         message.style.display = 'none';
         createBox.remove(); 
       });
